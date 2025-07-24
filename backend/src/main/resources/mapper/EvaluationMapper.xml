@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skax.academic.repository.EvaluationMapper">
+    <resultMap id="EvaluationResultMap" type="com.skax.academic.domain.Evaluation">
+        <id property="id" column="id"/>
+        <result property="applicantId" column="applicant_id"/>
+        <result property="item" column="item"/>
+        <result property="weight" column="weight"/>
+        <result property="score" column="score"/>
+        <result property="createdAt" column="created_at"/>
+    </resultMap>
+
+    <select id="findById" resultMap="EvaluationResultMap">
+        SELECT * FROM evaluation WHERE id = #{id}
+    </select>
+
+    <select id="findByApplicantId" resultMap="EvaluationResultMap">
+        SELECT * FROM evaluation WHERE applicant_id = #{applicantId}
+    </select>
+
+    <select id="findAll" resultMap="EvaluationResultMap">
+        SELECT * FROM evaluation
+    </select>
+
+    <insert id="insert" parameterType="com.skax.academic.domain.Evaluation">
+        INSERT INTO evaluation (applicant_id, item, weight, score, created_at)
+        VALUES (#{applicantId}, #{item}, #{weight}, #{score}, #{createdAt})
+    </insert>
+
+    <update id="update" parameterType="com.skax.academic.domain.Evaluation">
+        UPDATE evaluation
+        SET applicant_id = #{applicantId}, item = #{item}, weight = #{weight}, score = #{score}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM evaluation WHERE id = #{id}
+    </delete>
+</mapper> 

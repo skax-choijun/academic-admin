@@ -1,0 +1,25 @@
+---
+description: Academic-Admin 프로젝트용 rule(001)
+globs:
+alwaysApply: false
+---
+# Rule 001
+## 1. Backend 기술 스택
+- Java: jdk-21.0.2
+- Spring Boot: 3.4.7
+  > Project Metadata
+    . Group: com.skax
+    . Artifact: academic
+    . Name: academic-admin
+    . Description: 'Academic administration project'
+    . Package name: com.skax.academic
+    . Packaging: Jar
+    . Java: 21
+- gradle: 8.14.3
+- MyBatis
+- RESTful API
+
+## 2. Frontend 기술 스택
+- React
+- TypeScript
+- TailwindCSS
